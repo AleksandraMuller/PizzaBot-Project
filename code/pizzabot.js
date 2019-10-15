@@ -12,10 +12,6 @@ let minutes;
 
 console.log(vegetarian, hawaiian, pepperoni, pizzaPrice)
 
-alert(`Hey! Happy to serve your pizza. On our menu we have ${vegetarian}, ${hawaiian} and ${pepperoni}.`)
-orderName = prompt("Enter the name of the pizza you want to order today!")
-orderQuantity = prompt(`How many of ${orderName} do you want?`)
-
 let checkOrderName = (orderName) => {
     
     if(orderName === vegetarian || orderName === hawaiian || orderName === pepperoni){
@@ -41,16 +37,23 @@ let cookingTime= (orderQuantity) =>{
     } 
 } 
 
+alert(`Hey! Happy to serve your pizza. On our menu we have ${vegetarian}, ${hawaiian} and ${pepperoni}.`)
+orderName = prompt("Enter the name of the pizza you want to order today!")
+
 let checkOrderTrue = checkOrderName(orderName)
 
+
+
 if(checkOrderTrue) {
+    
+        orderQuantity = prompt(`How many of ${orderName} do you want?`)
     
         totalCost(orderQuantity)
     
         cookingTime(orderQuantity)
 
-    
-    alert(`Great, I'll get started on your ${orderName} right away, it will cost ${orderTotal} kr. The Pizzas will take ${minutes} minutes`)
+        document.getElementById("pizza-bot").innerHTML = `Great, I'll get started on your ${orderName} right away, it will cost ${orderTotal} kr. The Pizzas will take ${minutes} minutes`
+    // alert(`Great, I'll get started on your ${orderName} right away, it will cost ${orderTotal} kr. The Pizzas will take ${minutes} minutes`)
     } else { 
         alert(`Select a pizza from the menu`)
     }
