@@ -13,14 +13,24 @@ let minutes;
 console.log(vegetarian, hawaiian, pepperoni, pizzaPrice)
 
 alert(`Hey! Happy to serve your pizza. On our menu we have ${vegetarian}, ${hawaiian} and ${pepperoni}.`)
-
 orderName = prompt("Enter the name of the pizza you want to order today!")
-
-
-if(orderName === vegetarian || orderName === hawaiian || orderName === pepperoni) {
-
 orderQuantity = prompt(`How many of ${orderName} do you want?`)
-orderTotal = (orderQuantity * pizzaPrice)
+
+let checkOrderName = (orderName) => {
+    
+    if(orderName === vegetarian || orderName === hawaiian || orderName === pepperoni){
+        return true
+    } else {
+       return false
+    }
+}
+
+let totalCost= (orderQuantity) => {
+ 
+    orderTotal = (orderQuantity * pizzaPrice) 
+}
+
+let cookingTime= (orderQuantity) =>{
 
     if(orderQuantity <= 2){
         minutes = 10
@@ -29,12 +39,19 @@ orderTotal = (orderQuantity * pizzaPrice)
     } else {
         minutes = 20
     } 
+} 
 
-alert(`Great, I'll get started on your ${orderName} right away, it will cost ${orderTotal} kr. The Pizzas will take ${minutes} minutes`)
-} else { 
-    alert(`Select a pizza from the menu`)
-}
+let checkOrderTrue = checkOrderName(orderName)
 
+if(checkOrderTrue) {
+    
+        totalCost(orderQuantity)
+    
+        cookingTime(orderQuantity)
 
-
+    
+    alert(`Great, I'll get started on your ${orderName} right away, it will cost ${orderTotal} kr. The Pizzas will take ${minutes} minutes`)
+    } else { 
+        alert(`Select a pizza from the menu`)
+    }
 
