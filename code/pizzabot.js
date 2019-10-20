@@ -8,7 +8,6 @@ let orderName;
 let orderTotal;
 let minutes;
 
-//Put your Javscript code here:
 
 console.log(vegetarian, hawaiian, pepperoni, pizzaPrice)
 
